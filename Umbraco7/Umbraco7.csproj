@@ -416,6 +416,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\CartController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OrderConfirmationController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Model\Cart.cs" />
@@ -561,6 +562,7 @@
     <Content Include="Views\ProductDetails.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Carts.cshtml" />
+    <Content Include="Views\Partials\Header.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -574,6 +576,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Cart\" />
+    <Folder Include="Views\Home\" />
     <Folder Include="Views\OrderConfirmation\" />
   </ItemGroup>
   <PropertyGroup>

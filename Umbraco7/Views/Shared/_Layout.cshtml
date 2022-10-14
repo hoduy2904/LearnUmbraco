@@ -28,6 +28,9 @@
     @RenderSection("styles", false)
 </head>
 <body>
+    @{ 
+        Html.RenderPartial("Header");
+    }
     <div class="wrapper">
         @RenderBody()
         <footer>
@@ -36,6 +39,7 @@
                 <p>Click to start editing the text</p>
             </div>
         </footer>
+      
 
     </div>
     <!-- Optional JavaScript -->

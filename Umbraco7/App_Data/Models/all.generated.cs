@@ -8,8 +8,8 @@ using  Umbraco.Web;
 using  Umbraco.ModelsBuilder;
 using  Umbraco.ModelsBuilder.Umbraco;
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "350cf62f7ea07c99")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "bc3c8ff17e9dec44")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.3")]
 
 
 // FILE: models.generated.cs
@@ -936,6 +936,59 @@ namespace Umbraco.Web.PublishedContentModels
 		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Carts, TValue>> selector)
 		{
 			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+	}
+
+	/// <summary>Navbar</summary>
+	[PublishedContentModel("navbar")]
+	public partial class Navbar : PublishedContentModel
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "navbar";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public Navbar(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Navbar, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Center
+		///</summary>
+		[ImplementPropertyType("center")]
+		public IPublishedContent Center
+		{
+			get { return this.GetPropertyValue<IPublishedContent>("center"); }
+		}
+
+		///<summary>
+		/// Left
+		///</summary>
+		[ImplementPropertyType("left")]
+		public IPublishedContent Left
+		{
+			get { return this.GetPropertyValue<IPublishedContent>("left"); }
+		}
+
+		///<summary>
+		/// Right
+		///</summary>
+		[ImplementPropertyType("right")]
+		public IPublishedContent Right
+		{
+			get { return this.GetPropertyValue<IPublishedContent>("right"); }
 		}
 	}
 
