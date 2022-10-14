@@ -1,0 +1,89 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var listCart = Request.Cookies["carts"] == null ? (new List<Umbraco7.Model.Cart>()) : Newtonsoft.Json.JsonConvert.DeserializeObject<List<Umbraco7.Model.Cart>>(Request.Cookies["carts"].Value);
+}
+
+<div class="container">
+    <p><b>Carts Count: <span class="text-danger" id="NumberCarts">0</span></b></p>
+    <h1 class="text-center">List Carts</h1>
+
+
+    <div class="table-responsive">
+
+
+        <table class="table mt-5 table-hover">
+            <thead class="text-center">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>From Date</th>
+                    <th>To Date</th>
+                    <th>Price</th>
+                    <th>Number</th>
+                    <th>Total Money</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody class="text-center">
+                @foreach (var item in listCart)
+                {
+                    <tr id="@item.Id">
+                        <td>@item.Id</td>
+                        <td>@item.Name</td>
+                        <td>@item.FromDate.ToShortDateString()</td>
+                        <td>@item.toDate.ToShortDateString()</td>
+                        <td>@item.price.ToString("#,###",System.Globalization.CultureInfo.GetCultureInfo("vi-VN").NumberFormat)</td>
+                        <td><input class="form-control text-center" style="max-width:120px;" type="number" value="@item.Numbers" /></td>
+                        <td>@((item.price*item.Numbers).ToString("#,###",System.Globalization.CultureInfo.GetCultureInfo("vi-VN").NumberFormat))</td>
+                        <td>
+                            <button class="btn btn-danger delete">Delete</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section script{
+
+    @*<script id="CartTemplate" type="text/x-jquery-tmpl">
+        {{each data}}
+        <tr id="${Id}">
+            <td>${Id}</td>
+            <td>${Title}</td>
+            <td>${FromDate}</td>
+            <td>${ToDate}</td>
+            <td>${Price.toLocaleString("vi-VN")}</td>
+            <td><input class="form-control text-center" style="max-width:120px;" type="number" value="${Numbers}"/></td>
+            <td>${(Price*Numbers).toLocaleString("vi-VN")}</td>
+            <td>
+                <button class="btn btn-danger delete">Delete</button>
+            </td>
+        </tr>
+        {{/each}}
+    </script>
+
+
+    <script>
+        showCart();
+    </script>*@
+
+
+    <script>
+        $(function () {
+            $('.delete').on('click', function () {
+                var id = $(this).parents('tr').attr('id');
+                delCartCookie(id)
+            });
+
+            $('input[type=number]').on('change', function () {
+                var id = $(this).parents('tr').attr('id');
+                var number = $(this).val();
+                editCartCookie(id, number);
+            })
+        })
+    </script>
+}

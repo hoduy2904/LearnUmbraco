@@ -1,0 +1,473 @@
+/*FILE 1*/
+$blue:blue;
+$black:black;
+$white:#fff;
+
+@mixin outline-none{
+    outline: none;
+}
+
+@mixin center-position($left:50%,$top:50%,$transL:-50%,$transR:-50%){
+
+    position: absolute;
+    left: $left;
+    top: $top;
+    transform: translate($transL,$transR);
+}
+
+@mixin border($widthLine,$line,$color){
+    border: $widthLine $line $color;
+}
+
+%fullWidthHeight{
+    width: 100%;
+    height: 100%;
+}
+
+.bg-grey{
+    background-color: #cdcdcd;
+}
+
+button:focus{
+    outline: none !important;
+}
+
+.row{
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+.text-blue{
+    color:$blue !important;
+}
+.bg-blue{
+    background-color: $blue !important;
+}
+
+.text-black{
+    color:$black !important;
+}
+
+.btn-ct{
+    font-weight: 500;
+    padding: 10px 20px;
+}
+
+.btn-outline-black{
+    @include border(2px, solid, $black );
+    color: $black;
+    background-color: transparent;
+}
+
+
+textarea:focus, input:focus{
+    @include outline-none()
+}
+
+
+.banner{
+    display: flex;
+    height: 100%;
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    .banner-image{
+        @extend %fullWidthHeight;
+
+        img{
+            object-fit: contain;
+            width: 100%;
+            max-height: 100%;
+        }
+    }
+}
+
+
+.btn-custom{
+    @include border(1px, solid, $white);
+    padding: 10px 60px;
+
+    &:hover{
+        @include border(1px, solid, $black);
+        background-color: black;
+        color:#fff;
+    }
+}
+
+.banner-title{
+    z-index: 1;
+    color: $white;
+    @include center-position()
+}
+.title-heading{
+    font: {
+        size: 40px;
+        weight: 600;
+    }
+}
+
+.banner-title a{
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+.lorem-text{
+    line-height: 50px;
+    font-size: 13px;
+}
+.left-template img{
+    width:100%;
+}
+
+
+.template-four{
+    color:white;
+
+    .card-round{
+        margin: auto;
+    
+        text-align: left;
+        display: flex;
+
+        .card-head{
+            b{
+                background-color: white;
+                color:blue;
+                padding: 10px 12px;
+            }
+        }
+
+    }
+
+    .card-head{
+        margin: auto;
+    }
+
+    .card-body-title{
+        letter-spacing: 3px;
+    }
+}
+
+.template-five{
+    .card-image{
+        margin: 20px 0;
+        .card-image-cover{
+            background-color: $white;
+            padding: 30px 30px 10px;
+            border-radius: 10px;
+            max-width: 100%;
+        }
+        .card-image-head{
+            aspect-ratio: 4 / 3;
+            img{
+                @extend %fullWidthHeight;
+                object-fit: cover;
+                border-radius:20px;
+            }
+        }
+        .card-image-body{
+            text-align: center;
+            .sub-title{
+                font-size: 13px;
+                color: #cdcdcd;
+            }
+            .main-title{
+                font-weight: 700;
+                font-size: 18px;
+            }
+        }
+    }
+}
+
+.card-round{
+    margin-top: 50px;
+    text-align: center;
+
+    .card-head{
+        margin-bottom: 30px;
+        b{
+            background-color: blue;
+            color:white;
+            padding: 35px;
+            font-size: 40px;
+            border-radius: 50%;
+        }
+    }
+
+    .card-body{
+        .card-body-title{
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+    }
+}
+
+
+.template{
+    margin-bottom: 50px;
+    position: relative;
+
+    .left-template{
+        @extend %fullWidthHeight;
+
+        img{
+            object-fit: cover;
+        }
+    }
+
+    .right-template{
+        overflow: hidden;
+
+        p{
+            position: absolute;
+            top:50%;
+            font: {
+                size: 15px;
+                weight: 500;
+            }
+            line-height: 25px;
+        }
+    }
+
+    .text-template{
+        @include center-position(50%,40%);
+        color:#fff;
+        border: none;
+        background-color: blue;
+        font: {
+            weight: 600;
+            size: 20px;
+        }
+    }
+}
+
+.card-text-image_body .card-text-title{
+    position: relative;
+    font: {
+        weight:700;
+        size:17px;
+    }
+    margin-bottom: 50px;
+}
+.template-two .card-text-image_body .card-text-title::before{
+    content: "";
+    background-color: $blue;
+    padding: 5px 10px;
+    position: absolute;
+    width: 90px;
+    top: 40px;
+}
+
+.card-body-image {
+    @extend %fullWidthHeight;
+    img{
+        @extend %fullWidthHeight;
+        object-fit: cover;
+    }
+}
+
+.template-two div:nth-child(2) .card-text-image{
+    margin-top: 50px;
+}
+
+.template-three{
+    margin-top: 100px;
+
+    a{
+        position: relative;
+        &::before{
+            content: "";
+            width:100%;
+            padding: 1px 10px;
+            position: absolute;
+            background-color: $black;
+            top: 20px;
+        }
+    }
+
+    .card-text-image_body .card-text-title{
+        margin-bottom: 25px;
+    }
+
+    div:nth-child(2) .card-text-image{
+        margin-top: 30%;
+    }
+}
+
+
+.infomation-contact{
+    height: 600px;
+    position: relative;
+    background-image: url("../images/hinh-nen-den-trang-dien-thoai-6.jpg");
+    background-size: cover;
+}
+.form-contact{
+    @include center-position();
+    background-color: $white;
+    width: 80%;
+    padding: 50px;
+}
+
+.contact-input{
+    border: none {
+        
+        bottom: 2px solid #333;
+    }
+    margin-top: 40px;
+    width: 100%;
+}
+
+footer{
+    width: 100%;
+    height: 150px;
+    background-color: rgb(70, 70, 70);
+    display: flex;
+    text-align: center;
+
+    .footer-text{
+        margin: auto;
+
+        p{
+            line-height: 5px;
+            color:$white;
+        }
+    }
+}
+
+.textG{
+    position: absolute;
+    font-size: 100px;
+    color: $blue;
+    top: 20%;
+    right: calc(100% - 50px);
+}
+
+.carousel-item,
+.carousel,
+.carousel-inner{
+    @extend %fullWidthHeight;
+}
+.cbp-mobile{
+    display: none;
+}
+
+.carousel-indicators li{
+    border-radius: 50%;
+    height: 10px;
+    width:10px;
+}
+
+/*RESPONSIVE*/
+
+
+@media (max-width: 790px) {
+
+    .title-heading{
+        font-size: 30px;
+    }
+    .card-round .card-head b{
+        padding: 20px;
+    }
+    .card-body-subtitle{
+        display: none;
+    }
+
+    .template {
+        .text-template{
+            @extend .card-body-subtitle;
+        }
+
+        .right-template p{
+            position: unset;
+            line-height: normal;
+        }
+    }
+
+    .cbp-mobile{
+        display: block;
+    }
+
+    .ds-mobile{
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+    .form-contact{
+        position: unset;
+        left: auto;
+        width: 100%;
+        top: unset;
+        transform: unset;
+    }
+    .infomation-contact{
+        height: auto;
+    }
+    footer .footer-text p{
+        line-height: 20px;
+    }
+    .right-template p{
+
+        -webkit: {
+            -box-orient: vertical;
+            -line-clamp:5;
+        }
+
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-top: 10px;
+    }
+
+    .lorem-text{
+        margin-top: 10px;
+        line-height: normal;
+    }
+    .card-body{
+        padding: 0;
+    }
+    .template-four .card-round .card-body{
+        padding:1.25rem;
+    }
+    .btn-custom{
+        padding: 5px 15px;
+    }
+    
+}
+
+.owl-theme .owl-nav{
+    display: flex;
+    width: 100%;
+    position: absolute;
+    margin-top: 10px;
+    top: 50%;
+    left: 50%;
+    padding: 0 20px;
+    justify-content: space-between;
+    transform: translate(-50%,-50%);
+
+    button{
+        font-size: 60px !important;
+        span{
+            color:#cdcdcd;
+        }
+
+        &:hover{
+            background-color: transparent !important;
+           
+            &> span{
+                color: #333 !important;
+            }
+        }
+        &:focus{
+            outline: none;
+        }
+    }
+}
+.owl-dots{
+    left: 50%;
+    position: absolute;
+    bottom: 5px;
+    transform: translate(-50%);
+}
+
+
+

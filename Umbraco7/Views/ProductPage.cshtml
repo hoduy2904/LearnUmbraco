@@ -1,0 +1,40 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+    @using ContentModels = Umbraco.Web.PublishedContentModels;
+    @{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+<div class="container mt-5">
+    <p><b>Carts Count: <span class="text-danger" id="NumberCarts">0</span></b></p>
+    <h1 class="mb-5">@(Model.Content.GetPropertyValue("title"))</h1>
+    <div class="products template-five row">
+        @foreach (var item in Model.Content.Children)
+        {
+        string image = item.GetPropertyValue<IPublishedContent>
+            ("image") == null ? "" : item.GetPropertyValue<IPublishedContent>
+                ("image").Url;
+                string title = item.GetPropertyValue<string>
+                    ("title");
+                    DateTime fromDate = item.GetPropertyValue<DateTime>
+                        ("fromdate");
+                        DateTime toDate = item.GetPropertyValue<DateTime>
+                            ("todate");
+                            string price = item.GetPropertyValue<string>
+                                ("price");
+                                price=String.Format(System.Globalization.CultureInfo.GetCultureInfo("vi-VN"), "{0:c0}", Double.Parse(price));
+                                <div class="card-image col-md-3 col-sm-4 col-6">
+                                    <a href="@item.Url" title="@item.Name">
+                                        <div class="card-image-cover">
+                                            <div class="card-image-head">
+                                                <img src="@image" alt="@title">
+                                            </div>
+                                            <div class="card-image-body">
+                                                <p class="sub-title mt-2">@(fromDate.ToString("dd/MM/yyyy")+" - "+toDate.ToString("dd/MM/yyyy"))</p>
+                                                <h3 class="main-title">@title</h3>
+                                                <b class="text-danger font-weight-bold">@price</b>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                }
+    </div>
+</div>

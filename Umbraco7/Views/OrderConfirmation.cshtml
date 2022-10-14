@@ -1,0 +1,26 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+@{
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container my-5">
+    <h1 class="text-center">Xác nhận đơn hàng</h1>
+
+
+    @using (Html.BeginForm("OrderConfirmation", "OrderConfirmation", FormMethod.Post))
+    {
+        <div class="form-group">
+            <label>Họ và tên</label>
+            <input class="form-control" placeholder="Name" required name="nameCustomer" />
+        </div>
+        <div class="form-group">
+            <label>Địa chỉ</label>
+            <input class="form-control" placeholder="Name" required name="Address" />
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" class="form-control" placeholder="Name" required name="Email" />
+        </div>
+        <input class="btn btn-primary" type="submit" />
+    }
+</div>

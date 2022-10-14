@@ -1,0 +1,55 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    ViewBag.version = "1.1";
+    var langs = Umbraco.TypedContentAtRoot();
+    ViewBag.url = Umbraco.GetDictionaryValue("Url");
+    var CountCarts = Request.Cookies["carts"] == null ? 0 : Newtonsoft.Json.JsonConvert.DeserializeObject<List<Umbraco7.Model.Cart>>(Request.Cookies["carts"].Value).Count;
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <title>@ViewBag.Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+    <meta name="description" content="@ViewBag.description" />
+    <meta name="revisit-after" content="1 days" />
+    <meta property="og:image" content="@ViewBag.img" />
+    <meta property="og:title" content="@ViewBag.Title" />
+    <meta property="og:url" content="@HttpContext.Current.Request.Url.AbsoluteUri" />
+    <meta property="og:description" content="@ViewBag.description" />
+    <link rel="canonical" href="@(HttpContext.Current.Request.Url.Host +"://"+HttpContext.Current.Request.Url.AbsolutePath)" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/Content/verdor/boostrap4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/Content/css/bundle.min.css?v=@ViewBag.version">
+    <link rel="stylesheet" href="/Content/verdor/OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="/Content/verdor/OwlCarousel2-2.3.4/dist/assets/owl.theme.default.min.css">
+    @RenderSection("styles", false)
+</head>
+<body>
+    <div class="wrapper">
+        @RenderBody()
+        <footer>
+            <div class="footer-text">
+                <p>Sample text. Click to select the text box. Click again or double </p>
+                <p>Click to start editing the text</p>
+            </div>
+        </footer>
+
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="~/Content/js/jquery-3.6.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="~/Content/verdor/boostrap4/js/bootstrap.min.js"></script>
+    <script src="/Content/verdor/OwlCarousel2-2.3.4/dist/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.js"></script>
+    <script src="/Content/js/main.js?v=@ViewBag.version"></script>
+    <script src="~/Content/js/cart.js?v=@ViewBag.version"></script>
+    <script>getCountCarts(@CountCarts);</script>
+
+    @RenderSection("script", false)
+
+</body>
+</html>

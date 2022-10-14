@@ -1,0 +1,47 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+	Layout = null;
+	 var langs = Model.Content.Parent.Children();
+    string defaultUrl = HttpContext.Current.Request.Url.AbsolutePath;
+    //Banner
+    var banners = Model.Content.GetPropertyValue<IEnumerable<IPublishedContent>>("nestedBanner");
+}
+
+<div class="banner">
+
+        <div style="position: absolute; top:10px; left:20px; z-index:2;">
+            <b>Language Options: </b>
+            @foreach (var lang in langs)
+            {
+                if (defaultUrl.Split('/')[1].ToUpper().Contains(lang.Name.ToUpper()))
+                {
+                    <b><a href="@lang.Url">@lang.Name</a></b>
+                }
+                else
+                {
+                    <a href="@lang.Url">@lang.Name</a>
+                }
+
+            }
+        </div>
+
+        <div class="owl-carousel owl-theme banner-carousel">
+
+            @foreach (var item in banners)
+            {
+
+                <div class="banner-image">
+                    <img data-href="@(item.GetPropertyValue<string>("href"))" data-title="@(item.GetPropertyValue<string>("title"))" src="@(item.GetPropertyValue<IPublishedContent>("image")==null?"":item.GetPropertyValue<IPublishedContent>("image").Url)" alt="@item.Name" />
+                </div>
+
+            }
+        </div>
+        <div class="banner-title">
+            <p class="text-center title-heading">planning</p>
+            <a href="#" class="btn btn-custom text-white">Read more</a>
+        </div>
+
+
+
+    </div>
+

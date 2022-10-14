@@ -1,0 +1,57 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    double price = 0;
+    var format = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
+    string image = Model.Content.GetPropertyValue<IPublishedContent>("image") == null ? "" : Model.Content.GetPropertyValue<IPublishedContent>("image").Url;
+
+    string toDate = Umbraco.GetDictionaryValue("To Date");
+}
+<div style="background-color: #f2f3f3" class="py-5">
+    <div class="container mb-5">
+        <p><b>Carts Count: <span class="text-danger" id="NumberCarts">0</span></b></p>
+        <div class="product-details row">
+            <div class="row col-12 mb-4 wrapInfo bg-white">
+                <div class="col-sm-12 col-lg-6 col-12">
+                    <img style="aspect-ratio: 1/1;
+            object-fit: cover;" class="w-100 rounded" src="@(image)" />
+                </div>
+                <div class="col-sm-12 col-lg-6 col-12">
+                    <h1 class="mb-3 font-weight-bold">@Umbraco.Field("title")</h1>
+                    <table class="mb-5">
+                        <tr>
+                            <td><b>@Umbraco.GetDictionaryValue("From Date"): </b></td>
+                            <td class="text-secondary"><i>@(Model.Content.GetPropertyValue<DateTime>("fromDate").ToShortDateString())</i></td>
+                        </tr>
+
+                        <tr>
+                            <td><b>@Umbraco.GetDictionaryValue("To Date"): </b></td>
+                            <td class="text-secondary"><i>@(Model.Content.GetPropertyValue<DateTime>("toDate").ToShortDateString())</i></td>
+                        </tr>
+                    </table>
+                    <div class="form-group">
+                        <label>Number: </label>
+                        <input type="number" class="form-control" min="1" value="1" id="numbers" />
+                    </div>
+                    <h2>@Umbraco.GetDictionaryValue("Price"): </h2>
+                    <h2 class="text-danger font-weight-bold">@string.Format(format, "{0:c0}", (Double.Parse(Umbraco.Field("price") == null ? "0" : Umbraco.Field("price").ToString())))</h2>
+                    <button id="order" class="btn text-white font-weight-bold mt-3 bg-info">@Umbraco.GetDictionaryValue("Order")</button>
+                </div>
+            </div>
+
+            <div class="col-12 content bg-white">
+                <h3 class="mb-3">@Umbraco.GetDictionaryValue("Description")</h3>
+                @Html.Raw(Umbraco.Field("description").ToString() ?? "")
+            </div>
+        </div>
+    </div>
+</div>
+@section script{
+    <script>
+        $('#order').on('click', function () {
+            addCartCookie(@Model.Content.Id, $('#numbers').val());
+        })
+
+
+    </script>
+}

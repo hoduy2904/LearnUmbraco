@@ -1,0 +1,443 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var langs = Model.Content.Parent.Children();
+    string defaultUrl = HttpContext.Current.Request.Url.AbsolutePath;
+
+    ViewBag.Title = defaultUrl.Split('/')[1].Contains("en") ? "Home Page" : "Trang chủ";
+}
+@{
+
+    //Section Banner
+    var banners = Model.Content.FirstChild("bannerTemplate");
+
+    //Template One
+    var TemplateOne = Model.Content.FirstChild("templateSectionOne");
+    var titleTemplateOne = TemplateOne == null ? "" : TemplateOne.GetPropertyValue<string>("title");
+    var titleBlueTemplateOne = TemplateOne == null ? "" : TemplateOne.GetPropertyValue<string>("titleBlue");
+    var templateOneSubtitle = TemplateOne == null ? "" : TemplateOne.GetPropertyValue<string>("description");
+    var IsShowTemplateOne = TemplateOne == null ? false : TemplateOne.GetPropertyValue<bool>("isShow");
+
+    //Section Two
+    var SectionTwo = Model.Content.FirstChild("templateSectionTwo");
+    var sectionTwoImage = SectionTwo.GetPropertyValue<IPublishedContent>("image") == null ? "" : SectionTwo.GetPropertyValue<IPublishedContent>("image").Url;
+    var sectionIsShow = SectionTwo == null ? false : SectionTwo.GetPropertyValue<bool>("isShow");
+
+    //Section Three
+    var SectionThree = Model.Content.FirstChild("templateSectionThree");
+    var sectionThreeisShow = SectionThree == null ? false : SectionThree.GetPropertyValue<bool>("isShow");
+
+    //Section Four
+    var sectionFour = Model.Content.FirstChild("templateSectionFour");
+    var sectionFourIsShow = sectionFour == null ? false : sectionFour.GetPropertyValue<bool>("isShow");
+
+    // Section Travel
+    var travel = Model.Content.FirstChild("sectionTitleTemplate");
+
+    //Section Five
+    var TemplateFive = Model.Content.FirstChild("templateSectionFive");
+    var IsShowTemplateFive = TemplateFive == null ? false : TemplateFive.GetPropertyValue<bool>("isShow");
+
+    //Section Six
+
+    var TemplateSix = Model.Content.FirstChild("templateSectionSix");
+
+
+
+
+}
+
+<div class="wrapper">
+
+    @*Section Banner*@
+
+    @if (banners != null)
+    {
+        <div class="banner">
+
+            <div style="position: absolute; top:10px; left:20px; z-index:2;">
+                <b>Language Options: </b>
+                @foreach (var lang in langs)
+                {
+                    if (defaultUrl.Split('/')[1].ToUpper().Contains(lang.Name.ToUpper()))
+                    {
+                        <b><a href="@lang.Url">@lang.Name</a></b>
+                    }
+                    else
+                    {
+                        <a href="@lang.Url">@lang.Name</a>
+                    }
+
+                }
+                <p><b>Carts Count: <span class="text-danger" id="NumberCarts">0</span></b></p>
+            </div>
+
+            <div class="owl-carousel owl-theme banner-carousel">
+                @foreach (var item in banners.Children)
+                {
+
+                    <div class="banner-image">
+                        <img data-href="@(item.GetPropertyValue<string>("href"))" data-title="@(item.GetPropertyValue<string>("title"))" src="@(item.GetPropertyValue<IPublishedContent>("image") == null ? "" : item.GetPropertyValue<IPublishedContent>("image").Url)" alt="@item.Name" />
+                    </div>
+
+                }
+            </div>
+            <div class="banner-title">
+                <p class="text-center title-heading">planning</p>
+                <a href="#" class="btn btn-custom text-white">@Umbraco.GetDictionaryValue("Read more")</a>
+            </div>
+
+
+
+        </div>
+    }
+
+
+    @*End Section Banner*@
+
+
+    <div class="container mt-5">
+        @if (TemplateOne != null)
+        {
+            if (IsShowTemplateOne)
+            {
+                <div class="row m-3">
+                    <div class="col-12 d-flex">
+                        <div class="text-center m-auto">
+                            <h1 class="title-heading m-0 font-weight-bold">@titleTemplateOne</h1>
+                            <h2 class="title-heading m-0 text-blue font-weight-bold">@titleBlueTemplateOne</h2>
+                            <p class="lorem-text">@templateOneSubtitle</p>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="row">
+
+                            @foreach (var item in TemplateOne.Children())
+                            {
+                                <div class="card-round col-4">
+                                    <div class="card-head">
+                                        <b>@(item.GetPropertyValue<string>("circleTitle"))</b>
+                                    </div>
+                                    <div class="card-body">
+                                        <h6 class="card-body-title">
+                                            @(item.GetPropertyValue<string>("title"))
+                                        </h6>
+                                        <div class="card-body-subtitle">
+                                            <p> @(item.GetPropertyValue<string>("description"))</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+                    @if (SectionTwo != null)
+                    {
+                        if (sectionIsShow)
+                        {
+                            <div class="col-12 template">
+                                <h2 class="cbp-mobile text-center mb-4">@(SectionTwo.GetPropertyValue<string>("title"))</h2>
+                                <div class="row">
+
+                                    <div class="left-template col-md-6 col-sm-12">
+                                        <img alt="Images Body" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" lazy-src="@sectionTwoImage" />
+                                    </div>
+
+                                    <div class="right-template position-relative col-md-6 col-sm-12">
+                                        <p>@(SectionTwo.GetPropertyValue<string>("description"))</p>
+                                    </div>
+
+                                    <a href="@(SectionTwo.GetPropertyValue<string>("href"))" class="text-template btn-custom">
+                                        @(SectionTwo.GetPropertyValue<string>("title"))
+                                    </a>
+                                </div>
+                            </div>
+                        }
+                    }
+                    @if (SectionThree != null)
+                    {
+                        if (sectionThreeisShow)
+                        {
+                            <div class="col-md-7 col-sm-12 template">
+                                <h2 class="title-heading font-weight-bold mb-3" style="font-size: 30px !important;">@(SectionThree.GetPropertyValue<string>("title"))</h2>
+                                @(SectionThree.GetPropertyValue<string>("description"))
+                            </div>
+                        }
+                    }
+                </div>
+            }
+        }
+
+        @if (sectionFour != null)
+        {
+            if (sectionFourIsShow)
+            {
+                bool isFirst = true;
+                <div class="row template template-two">
+
+                    @foreach (var item in sectionFour.GetPropertyValue<IEnumerable<IPublishedContent>>("items"))
+                    {
+
+
+                        <div class="col-sm-12 col-md-6">
+                            @if (isFirst)
+                            {
+                                <h2 class="title-heading font-weight-bold" style="font-size: 30px;">@(sectionFour.GetPropertyValue<string>("title"))</h2>
+                            }
+
+                            <div class="card-text-image">
+                                <div class="card-text-image_body row @(isFirst==false ?"flex-row-reverse" : "")">
+
+                                    <div class="col-6 align-self-center">
+                                        <h3 class="card-text-title">@(item.GetPropertyValue<string>("title"))</h3>
+                                        <p>@(item.GetPropertyValue<string>("description"))</p>
+                                    </div>
+
+                                    <div class="col-6">
+                                        <div class="card-body-image">
+                                            <img alt="Images Body" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" lazy-src="@(item.GetPropertyValue<IPublishedContent>("image") == null ? "" : item.GetPropertyValue<IPublishedContent>("image").Url)" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        isFirst = false;
+
+                    }
+
+                </div>
+            }
+        }
+
+        @if (TemplateFive != null)
+        {
+            int count = 1;
+            if (IsShowTemplateFive)
+            {
+                <div class="row template template-three">
+                    @foreach (var item in TemplateFive.GetPropertyValue<IEnumerable<IPublishedContent>>("items"))
+                    {
+                        string image = item.GetPropertyValue<IPublishedContent>("image") == null ? "" : item.GetPropertyValue<IPublishedContent>("image").Url;
+                        if (count == 2)
+                        {
+                            <div class="col-md-4 col-sm-12">
+                                <div class="card-text-image">
+                                    <div class="card-text-image_body row">
+                                        <div class="col-12 align-self-center mb-2 ">
+                                            <h2 class="font-weight-bold display-4">@(item.GetPropertyValue<string>("title"))</h2>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <div class="card-body-image">
+                                                <img alt="Images Body" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" lazy-src="@image" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+
+                            <div class="col-md-4 col-sm-12">
+                                <div class="card-text-image">
+                                    <div class="card-text-image_body row @(count==3 ?"flex-column-reverse" :"")">
+                                        <div class="col-12 align-self-center mb-5">
+                                            <h3 class="card-text-title">@(item.GetPropertyValue<string>("title"))</h3>
+                                            <p><q>@(item.GetPropertyValue<string>("description"))</q></p>
+                                            <a href="@(item.GetPropertyValue<string>("href"))" class="font-weight-bold text-black">learn more</a>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <div class="card-body-image">
+                                                <img alt="Images Body" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" lazy-src="@image" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                        count++;
+                    }
+                </div>
+            }
+
+        }
+
+
+    </div>
+
+
+    @if (TemplateSix != null)
+    {
+        <div class="row bg-blue p-5 template-four">
+            <div class="col-md-6 col-sm-12">
+                <h3 class="display-4 ds-mobile">@(TemplateSix.GetPropertyValue<string>("title"))</h3>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <div class="row">
+                    @foreach (var item in TemplateSix.GetPropertyValue<IEnumerable<IPublishedContent>>("items"))
+                    {
+                        <div class="card-round col-12">
+                            <div class="card-head">
+                                <b>@(item.GetPropertyValue<string>("circleTitle"))</b>
+                            </div>
+                            <div class="card-body">
+                                <h6 class="card-body-title">
+                                    @(item.GetPropertyValue<string>("title"))
+                                </h6>
+                                <div class="card-body-subtitle">
+                                    <p> @(item.GetPropertyValue<string>("description")) </p>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    }
+
+    @*Section Travel*@
+    @if (travel != null)
+    {
+        <div class="bg-grey py-4">
+            <div class="container">
+                <div class="template-five row">
+                    <div class="col-12">
+                        <h2 class="title text-center mb-5 font-weight-bold">@(travel.HasProperty("title") ? travel.GetPropertyValue<string>("title") : "")</h2>
+                    </div>
+
+                    @foreach (var item in travel.Children)
+                    {
+                        string imageValue = (item.GetPropertyValue<IPublishedContent>("image") == null ? "" : item.GetPropertyValue<IPublishedContent>("image").Url);
+                        <div class="card-image col-md-4 col-sm-6 col-6" onclick="showDetailsTravel({title:'@(item.GetPropertyValue<string>("title"))',des: `@(item.GetPropertyValue<string>("description"))`, image:'@imageValue' })">
+                            <div class="card-image-cover">
+                                <div class="card-image-head">
+                                    <img src="@imageValue" alt="">
+                                </div>
+                                <div class="card-image-body">
+                                    <p class="sub-title mt-2">@(item.GetPropertyValue<string>("subtitle"))</p>
+                                    <h3 class="main-title">@(item.GetPropertyValue<string>("title"))</h3>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    }
+
+    @*End Section Travel*@
+
+    <div class="row infomation-contact">
+        <div class="form-contact m-auto">
+            <div class="row">
+                <div class="col-md-4 col-sm-12 align-self-end">
+                    <h3>GET IN TOUCH</h3>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero temporibus vitae, ad beatae dolores ullam reprehenderit quibusdam sint molestiae, quis, tempora possimus! Temporibus illum velit exercitationem, laudantium dolorum cumque natus?</p>
+                    <div class="mt-5"><a href="#" class="btn-ct btn-outline-black">LEARN MORE</a></div>
+                </div>
+                <div class="col-md-8 col-sm-12">
+                    <form>
+                        <input class="contact-input" required placeholder="Enter the valid email address" />
+
+                        <input class="contact-input" placeholder="Enter your address" />
+
+
+                        <textarea class="contact-input" required rows="5" placeholder="Enter your message"></textarea>
+
+
+                        <input type="submit" class="btn-ct btn-outline-black float-right mt-3" value="Submit" />
+                    </form>
+                </div>
+            </div>
+            <div class="textG">
+                <b>G</b>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" id="contentReplace">
+                <div class="modal-header">
+                    <h5 class="modal-title">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Body
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@section script{
+    <script>
+        const showDetailsTravel = (json) => {
+
+            $('#contentReplace').html('')
+            $('#travelDetails').tmpl(json).appendTo('#contentReplace');
+
+            $('#modelId').modal('show');
+        }
+
+    </script>
+
+    <script id="travelDetails" type="text/x-jquery-tmpl">
+        <div class="modal-header">
+            <h5 class="modal-title">About Country</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="d-flex justify-content-center">
+                <img style="max-height:200px;max-width:100%" src="${image}" alt="${country}" />
+
+            </div>
+
+            <h1 class="text-center font-weight-bold mt-4 mb-5">${title}</h1>
+
+            <p>${des}</p>
+        </div>
+    </script>
+
+
+    <script>
+
+        const loadContentBanner = () => {
+            var element = $('.owl-item.active .banner-image img');
+            let title = element.attr('data-title');
+            let href = element.attr('data-href');
+            $('.banner-title p').text(title);
+            $('banner-title a').attr('href', href);
+        }
+        $(function () {
+            loadContentBanner();
+
+        })
+        $('.banner-carousel').owlCarousel({
+            loop: true,
+            nav: true,
+            autoplay: true,
+            items: 1
+        })
+        $('.banner-carousel').on('changed.owl.carousel', function (event) {
+            $(function () {
+                loadContentBanner();
+
+            })
+        })
+    </script>
+}
