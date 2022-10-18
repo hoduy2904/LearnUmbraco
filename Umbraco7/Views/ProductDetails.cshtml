@@ -12,6 +12,13 @@
 }
 <div style="background-color: #f2f3f3" class="py-5">
     <div class="container mb-5">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="@Model.Content.Parent.Parent.Url">@Umbraco.GetDictionaryValue("Home")</a></li>
+                <li class="breadcrumb-item"><a href="@Model.Content.Parent.Url">@Model.Content.Parent.GetPropertyValue("title")</a></li>
+                <li class="breadcrumb-item active" aria-current="page">@ViewBag.title</li>
+            </ol>
+        </nav>
         <div class="product-details row">
             <div class="row col-12 mb-4 wrapInfo bg-white">
                 <div class="col-sm-12 col-lg-6 col-12">

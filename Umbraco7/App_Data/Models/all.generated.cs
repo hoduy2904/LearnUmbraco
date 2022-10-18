@@ -8,8 +8,8 @@ using  Umbraco.Web;
 using  Umbraco.ModelsBuilder;
 using  Umbraco.ModelsBuilder.Umbraco;
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "9dcdce6a91ec0c5c")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "5e4ecd3331da59b4")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.3")]
 
 
 // FILE: models.generated.cs
@@ -66,6 +66,15 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
+		/// Description
+		///</summary>
+		[ImplementPropertyType("descriptionSEO")]
+		public string DescriptionSeo
+		{
+			get { return this.GetPropertyValue<string>("descriptionSEO"); }
+		}
+
+		///<summary>
 		/// Left
 		///</summary>
 		[ImplementPropertyType("left")]
@@ -81,6 +90,15 @@ namespace Umbraco.Web.PublishedContentModels
 		public IEnumerable<IPublishedContent> Right
 		{
 			get { return this.GetPropertyValue<IEnumerable<IPublishedContent>>("right"); }
+		}
+
+		///<summary>
+		/// Title
+		///</summary>
+		[ImplementPropertyType("titleSEO")]
+		public string TitleSeo
+		{
+			get { return this.GetPropertyValue<string>("titleSEO"); }
 		}
 	}
 
@@ -216,12 +234,30 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
+		/// Description
+		///</summary>
+		[ImplementPropertyType("descriptionSEO")]
+		public string DescriptionSeo
+		{
+			get { return this.GetPropertyValue<string>("descriptionSEO"); }
+		}
+
+		///<summary>
 		/// Title
 		///</summary>
 		[ImplementPropertyType("title")]
 		public string Title
 		{
 			get { return this.GetPropertyValue<string>("title"); }
+		}
+
+		///<summary>
+		/// Title
+		///</summary>
+		[ImplementPropertyType("titleSeo")]
+		public string TitleSeo
+		{
+			get { return this.GetPropertyValue<string>("titleSeo"); }
 		}
 	}
 

@@ -9,7 +9,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>@ViewBag.Title - @Umbraco.GetDictionaryValue("Home")</title>
+    <title>@ViewBag.Title - Umbraco Learning</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
@@ -20,6 +20,8 @@
     <meta property="og:url" content="@HttpContext.Current.Request.Url.AbsoluteUri" />
     <meta property="og:description" content="@ViewBag.description" />
     <link rel="canonical" href="@(HttpContext.Current.Request.Url.Host +"://"+HttpContext.Current.Request.Url.AbsolutePath)" />
+    <link rel="icon" href="/favicon.png"/>
+    <link rel="apple-touch-icon" href="/favicon.png"/>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="~/Content/verdor/boostrap4/css/bootstrap.min.css">
     <link rel="stylesheet" href="/Content/css/bundle.min.css?v=@ViewBag.version">
@@ -40,6 +42,7 @@
                 <p>Click to start editing the text</p>
             </div>
         </footer>
+            <button class="back-to-top"><i class="fa-solid fa-arrow-up"></i></button>
       
 
     </div>
@@ -66,14 +69,20 @@
                 $('nav').removeClass('scroll');
             }
             if (this.scrollY > scrollOld && this.scrollY > 500) {
+                $('.back-to-top').addClass('show');
                 $('nav').css('transform', 'translateY(-100%)')
                 $('nav').css('opacity', '0')
             }
             else {
+                $('.back-to-top').removeClass('show');
                 $('nav').css('transform', 'translateY(0)')
                 $('nav').css('opacity', '1')
             }
             scrollOld = this.scrollY;
+        })
+
+        $('.back-to-top').on('click', function () {
+            $('html, body').animate({ scrollTop: 0 }, '300');
         })
     </script>
 
