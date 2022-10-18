@@ -5,3 +5,88 @@
     border-radius: 10px;
     padding: 20px;
 }
+nav.navbar {
+    width: 100%;
+    position: fixed;
+    z-index: 3;
+    color: #fff;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
+    margin-bottom: 10px;
+    height: 80px;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.5s linear;
+}
+nav.navbar.scroll{
+    background-color: #fff;
+    color:#333;
+}
+    nav.navbar.scroll ul li a{
+        color: #333;
+    }
+    nav.navbar ul li a {
+        font-weight: 600;
+        text-decoration: none;
+        color: #fff;
+        padding: 10px 15px;
+        transition: all 0.5s linear;
+    }
+
+    nav.navbar ul li a:hover {
+        color: rgb(235, 121, 46)
+    }
+
+.shop-cart {
+    position: relative;
+    align-self: center;
+}
+
+    .shop-cart span {
+        color: white;
+        font-weight: bold;
+        font-size: 12px;
+        padding: 0 5px;
+        border-radius: 50%;
+        background-color: red;
+        position: absolute;
+        top: -12px;
+        right: 0;
+    }
+
+.toggle-button {
+    background-color: transparent;
+    margin: 0 5px;
+    font-size: 20px;
+    border: none;
+    display: none;
+}
+
+@media (max-width: 700px) {
+    .toggle-button {
+        display: block;
+    }
+
+    .right {
+        max-width: 70% !important;
+        flex: 0 0 70%;
+    }
+
+    .toggle-menu {
+        display: none;
+        left: 0;
+        z-index: 2;
+        height: 100vh;
+        max-width: 100%;
+        position: absolute;
+        width: 100%;
+        background-color: #fff;
+        top: 80px;
+    }
+
+        .toggle-menu ul {
+            flex-direction: column;
+        }
+}
+table td {
+    vertical-align:middle !important;
+}

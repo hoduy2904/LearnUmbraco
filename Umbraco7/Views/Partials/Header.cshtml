@@ -1,20 +1,81 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+
 @{
-    var listItem = Umbraco.AssignedContentItem.Descendants();
+    string defaultUrl = HttpContext.Current.Request.Url.AbsolutePath;
+    var root2 = Model.Content.AncestorOrSelf("homePage");
+    var lstitems = root2.DescendantOrSelf("homePage");
+    var listItemLeft = (IEnumerable<IPublishedContent>)lstitems.GetPropertyValue("left");
+    var listItemRight = (IEnumerable<IPublishedContent>)lstitems.GetPropertyValue("right");
+
+    var langs = root2.Parent.Children();
 }
+<nav class="navbar" style="height: 80px;justify-content: space-between;align-items:center">
+    <div class="center text-center col-1 d-flex">
+        <b>LOGO</b>
+        <button class="toggle-button"><i class="fa-solid fa-bars"></i></button>
 
-<header class="w-100 d-flex bg-white" style="height:100px;box-shadow: 0 0 10px 0 rgba(0,0,0,0.08);">
-    
-    <div class="left">
-        @foreach(var item in listItem)
+    </div>
+    <div class="toggle-menu col-8">
+
+        <ul class="d-flex left m-0 " style="list-style: none;">
+            @if (listItemLeft != null)
             {
-                @item.Name
+                foreach (var item in listItemLeft)
+                {
+                    string href = "";
+                    if (item.HasValue("href"))
+                    {
+                        href = item.GetPropertyValue<string>("href");
+                    }
+                    else
+                        if (item.GetPropertyValue<IPublishedContent>("page") != null)
+                    {
+                        href = item.GetPropertyValue<IPublishedContent>("page").Url;
+                    }
+                    <li><a href="@(href)">@item.GetPropertyValue("title")</a></li>
+                }
             }
+        </ul>
     </div>
-    <div class="center">
+    <div class="right col-3">
+        <ul class="d-flex m-0" style=" justify-content: flex-end;list-style: none;">
+            <li>
+                <select onchange="location = `/${this.value.toLowerCase()}`;" class="form-control">
+                    @if (langs != null)
+                    {
+                        foreach (var item in langs)
+                        {
+                            <option @(item.Name.Equals(defaultUrl.Split('/')[1].ToUpper()) ? "selected='selected'" : "")>@item.Name</option>
+                        }
+                    }
+                </select>
+            </li>
+            @if (listItemRight != null)
+            {
+                foreach (var item in listItemRight)
+                {
+                    string href = "#";
+                    if (item.HasValue("href"))
+                    {
+                        href = item.GetPropertyValue<string>("href");
+                    }
+                    else
+                        if (item.GetPropertyValue<IPublishedContent>("page") != null)
+                    {
+                        href = item.GetPropertyValue<IPublishedContent>("page").Url;
+                    }
+                    if (item.GetPropertyValue("title").Equals("Cart"))
+                    {
 
-    </div>
-    <div class="right">
+                        <li class="shop-cart"><a href="@href"><i class="fa-solid fa-cart-shopping"></i></a><span id="countCart">0</span></li>
+                    }
+                    else
+                    {
+                        <li><a href="@(href)">@item.GetPropertyValue("title")</a></li>
+                    }
+                }
+            }
 
+        </ul>
     </div>
-</header>
+</nav>

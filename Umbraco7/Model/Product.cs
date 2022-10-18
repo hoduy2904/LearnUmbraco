@@ -8,6 +8,7 @@ namespace Umbraco7.Model
     public class Product
     {
         public int Id { get; set; }
+        public string Image { get; set; }
         public string Title { get; set; }
         public DateTime FromDate { get; set; }
         public DateTime ToDate { get; set; }

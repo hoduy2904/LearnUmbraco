@@ -2,9 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Web.UI.WebControls;
+using umbraco;
 using umbraco.cms.businesslogic.web;
 using Umbraco.Core;
 using Umbraco.Core.Models;
+using Umbraco.Core.Services;
+using Umbraco.Web;
 using Umbraco7.Model;
 
 namespace Umbraco7.Services
@@ -18,9 +21,11 @@ namespace Umbraco7.Services
             List<Product> products = new List<Product>();
             foreach(var item in lstValue)
             {
+                var img = item.HasProperty("image") ? item.GetValue<string>("image") : "";
                 Product product = new Product
                 {
                     Id = item.Id,
+                    Image= img,
                     FromDate = item.GetValue<DateTime>("fromDate"),
                     ToDate = item.GetValue<DateTime>("toDate"),
                     Price = item.GetValue<Double>("price"),
@@ -39,9 +44,11 @@ namespace Umbraco7.Services
            var value= ApplicationContext.Current.Services.ContentService.GetById(id);
             if (value != null)
             {
+                var img = value.HasProperty("image")? value.GetValue<string>("image"):"";
                 Product product = new Product
                 {
                     Id = id,
+                    Image= img,
                     FromDate = value.GetValue<DateTime>("fromDate"),
                     ToDate = value.GetValue<DateTime>("toDate"),
                     Price = value.GetValue<Double>("price"),
@@ -62,9 +69,11 @@ namespace Umbraco7.Services
                 var value = ApplicationContext.Current.Services.ContentService.GetById(id);
                 if (value != null)
                 {
+                    var img = value.HasProperty("image") ? value.GetValue<string>("image") : "";
                     Product product = new Product
                     {
                         Id = id,
+                        Image= img,
                         FromDate = value.GetValue<DateTime>("fromDate"),
                         ToDate = value.GetValue<DateTime>("toDate"),
                         Price = value.GetValue<Double>("price"),

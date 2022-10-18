@@ -4,7 +4,6 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     }
 <div class="container mt-5">
-    <p><b>Carts Count: <span class="text-danger" id="NumberCarts">0</span></b></p>
     <h1 class="mb-5">@(Model.Content.GetPropertyValue("title"))</h1>
     <div class="products template-five row">
         @foreach (var item in Model.Content.Children)

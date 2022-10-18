@@ -1,0 +1,33 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+ //Section Two
+    var SectionTwo = Model.Content.FirstChild("templateSectionTwo");
+    var sectionTwoImage = SectionTwo.GetPropertyValue<IPublishedContent>("image") == null ? "" : SectionTwo.GetPropertyValue<IPublishedContent>("image").Url;
+    var sectionIsShow = SectionTwo == null ? false : SectionTwo.GetPropertyValue<bool>("isShow");
+}
+    <div class="container mt-5">
+
+  @if (SectionTwo != null)
+       {
+           if (sectionIsShow)
+           {
+                            <div class="col-12 template">
+                                <h2 class="cbp-mobile text-center mb-4">@(SectionTwo.GetPropertyValue<string>("title"))</h2>
+                                <div class="row">
+
+                                    <div class="left-template col-md-6 col-sm-12">
+                                        <img alt="Images Body" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" lazy-src="@sectionTwoImage" />
+                                    </div>
+
+                                    <div class="right-template position-relative col-md-6 col-sm-12">
+                                        <p>@(SectionTwo.GetPropertyValue<string>("description"))</p>
+                                    </div>
+
+                                    <a href="@(SectionTwo.GetPropertyValue<string>("href"))" class="text-template btn-custom">
+                                        @(SectionTwo.GetPropertyValue<string>("title"))
+                                    </a>
+                                </div>
+                            </div>
+                        }
+                    }
+                    </div>

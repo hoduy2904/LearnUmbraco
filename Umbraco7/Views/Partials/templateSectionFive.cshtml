@@ -1,0 +1,65 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    //Section Five
+    var TemplateFive = Model.Content.FirstChild("templateSectionFive");
+    var IsShowTemplateFive = TemplateFive == null ? false : TemplateFive.GetPropertyValue<bool>("isShow");
+}
+
+<div class="container mt-5">
+
+    @if (TemplateFive != null)
+    {
+        int count = 1;
+        if (IsShowTemplateFive)
+        {
+            <div class="row template template-three">
+                @foreach (var item in TemplateFive.GetPropertyValue<IEnumerable<IPublishedContent>>("items"))
+                {
+                    string image = item.GetPropertyValue<IPublishedContent>("image") == null ? "" : item.GetPropertyValue<IPublishedContent>("image").Url;
+                    if (count == 2)
+                    {
+                        <div class="col-md-4 col-sm-12">
+                            <div class="card-text-image">
+                                <div class="card-text-image_body row">
+                                    <div class="col-12 align-self-center mb-2 ">
+                                        <h2 class="font-weight-bold display-4">@(item.GetPropertyValue<string>("title"))</h2>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <div class="card-body-image">
+                                            <img alt="Images Body" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" lazy-src="@image" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+
+                        <div class="col-md-4 col-sm-12">
+                            <div class="card-text-image">
+                                <div class="card-text-image_body row @(count==3 ?"flex-column-reverse" :"")">
+                                    <div class="col-12 align-self-center mb-5">
+                                        <h3 class="card-text-title">@(item.GetPropertyValue<string>("title"))</h3>
+                                        <p><q>@(item.GetPropertyValue<string>("description"))</q></p>
+                                        <a href="@(item.GetPropertyValue<string>("href"))" class="font-weight-bold text-black">learn more</a>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <div class="card-body-image">
+                                            <img alt="Images Body" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" lazy-src="@image" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                    count++;
+                }
+            </div>
+        }
+
+    }
+    </div>

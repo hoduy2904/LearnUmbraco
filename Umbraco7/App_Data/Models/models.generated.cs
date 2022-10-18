@@ -19,8 +19,8 @@ using Umbraco.ModelsBuilder;
 using Umbraco.ModelsBuilder.Umbraco;
 
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "bc3c8ff17e9dec44")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.3")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "9dcdce6a91ec0c5c")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
 
 namespace Umbraco.Web.PublishedContentModels
 {
@@ -50,30 +50,21 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Show
+		/// Left
 		///</summary>
-		[ImplementPropertyType("sectionFourIsShow")]
-		public bool SectionFourIsShow
+		[ImplementPropertyType("left")]
+		public IEnumerable<IPublishedContent> Left
 		{
-			get { return this.GetPropertyValue<bool>("sectionFourIsShow"); }
+			get { return this.GetPropertyValue<IEnumerable<IPublishedContent>>("left"); }
 		}
 
 		///<summary>
-		/// Items
+		/// Right
 		///</summary>
-		[ImplementPropertyType("sectionFourItems")]
-		public IEnumerable<IPublishedContent> SectionFourItems
+		[ImplementPropertyType("right")]
+		public IEnumerable<IPublishedContent> Right
 		{
-			get { return this.GetPropertyValue<IEnumerable<IPublishedContent>>("sectionFourItems"); }
-		}
-
-		///<summary>
-		/// Title
-		///</summary>
-		[ImplementPropertyType("sectionFourTitle")]
-		public string SectionFourTitle
-		{
-			get { return this.GetPropertyValue<string>("sectionFourTitle"); }
+			get { return this.GetPropertyValue<IEnumerable<IPublishedContent>>("right"); }
 		}
 	}
 
@@ -817,6 +808,15 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
+		/// Description
+		///</summary>
+		[ImplementPropertyType("descriptionSEO")]
+		public string DescriptionSeo
+		{
+			get { return this.GetPropertyValue<string>("descriptionSEO"); }
+		}
+
+		///<summary>
 		/// From Date
 		///</summary>
 		[ImplementPropertyType("fromDate")]
@@ -844,6 +844,15 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
+		/// Keywords
+		///</summary>
+		[ImplementPropertyType("keywordsSeo")]
+		public string KeywordsSeo
+		{
+			get { return this.GetPropertyValue<string>("keywordsSeo"); }
+		}
+
+		///<summary>
 		/// Price
 		///</summary>
 		[ImplementPropertyType("price")]
@@ -859,6 +868,15 @@ namespace Umbraco.Web.PublishedContentModels
 		public string Title
 		{
 			get { return this.GetPropertyValue<string>("title"); }
+		}
+
+		///<summary>
+		/// Title
+		///</summary>
+		[ImplementPropertyType("titleSeo")]
+		public string TitleSeo
+		{
+			get { return this.GetPropertyValue<string>("titleSeo"); }
 		}
 
 		///<summary>
@@ -949,30 +967,74 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Center
-		///</summary>
-		[ImplementPropertyType("center")]
-		public IPublishedContent Center
-		{
-			get { return this.GetPropertyValue<IPublishedContent>("center"); }
-		}
-
-		///<summary>
 		/// Left
 		///</summary>
 		[ImplementPropertyType("left")]
-		public IPublishedContent Left
+		public IEnumerable<IPublishedContent> Left
 		{
-			get { return this.GetPropertyValue<IPublishedContent>("left"); }
+			get { return this.GetPropertyValue<IEnumerable<IPublishedContent>>("left"); }
 		}
 
 		///<summary>
 		/// Right
 		///</summary>
 		[ImplementPropertyType("right")]
-		public IPublishedContent Right
+		public IEnumerable<IPublishedContent> Right
 		{
-			get { return this.GetPropertyValue<IPublishedContent>("right"); }
+			get { return this.GetPropertyValue<IEnumerable<IPublishedContent>>("right"); }
+		}
+	}
+
+	/// <summary>navbarItem</summary>
+	[PublishedContentModel("navbarItem")]
+	public partial class NavbarItem : PublishedContentModel
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "navbarItem";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public NavbarItem(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<NavbarItem, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// href
+		///</summary>
+		[ImplementPropertyType("href")]
+		public string Href
+		{
+			get { return this.GetPropertyValue<string>("href"); }
+		}
+
+		///<summary>
+		/// Page
+		///</summary>
+		[ImplementPropertyType("page")]
+		public IPublishedContent Page
+		{
+			get { return this.GetPropertyValue<IPublishedContent>("page"); }
+		}
+
+		///<summary>
+		/// Title
+		///</summary>
+		[ImplementPropertyType("title")]
+		public string Title
+		{
+			get { return this.GetPropertyValue<string>("title"); }
 		}
 	}
 
