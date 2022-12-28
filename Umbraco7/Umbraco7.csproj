@@ -2669,6 +2669,7 @@
     <Content Include="Views\Carts.cshtml" />
     <Content Include="Views\Partials\Header.cshtml" />
     <Content Include="Views\HomePage.cshtml" />
+    <Content Include="Views\RootPage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

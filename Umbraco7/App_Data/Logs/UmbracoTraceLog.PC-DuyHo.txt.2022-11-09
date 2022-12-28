@@ -1,0 +1,36 @@
+﻿ 2022-11-09 12:23:09,716 [P4296/D3/T194] INFO  umbraco.BusinessLogic.Log - Log scrubbed.  Removed all items older than 2022-11-08 12:23:09
+ 2022-11-09 13:21:59,425 [P4296/D3/T70] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [Umbraco.Web.Scheduling.IBackgroundTask] Terminating
+ 2022-11-09 13:21:59,426 [P4296/D3/T70] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [Umbraco.Web.Scheduling.IBackgroundTask] Waiting for tasks to complete
+ 2022-11-09 13:21:59,435 [P4296/D3/T70] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [HealthCheckNotifier] Terminating
+ 2022-11-09 13:21:59,436 [P4296/D3/T70] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [HealthCheckNotifier] Waiting for tasks to complete
+ 2022-11-09 13:21:59,437 [P4296/D3/T70] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [HealthCheckNotifier] Tasks completed, terminated
+ 2022-11-09 13:21:59,441 [P4296/D3/T47] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [Umbraco.Web.Scheduling.IBackgroundTask] Tasks completed, terminated
+ 2022-11-09 13:21:59,443 [P4296/D3/T70] INFO  Umbraco.Core.MainDom - Stopping...
+ 2022-11-09 13:21:59,452 [P4296/D3/T70] INFO  Umbraco.Web.ExamineStartup - Examine shutting down
+ 2022-11-09 13:21:59,464 [P4296/D3/T70] INFO  Umbraco.Web.ExamineStartup - Complete (took 12ms)
+ 2022-11-09 13:21:59,466 [P4296/D3/T70] INFO  Umbraco.Core.MainDom - Released MainDom.
+ 2022-11-09 13:21:59,466 [P4296/D3/T70] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [KeepAlive] Terminating
+ 2022-11-09 13:21:59,466 [P4296/D3/T70] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [KeepAlive] Waiting for tasks to complete
+ 2022-11-09 13:21:59,467 [P4296/D3/T70] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [InstructionProcessing] Terminating
+ 2022-11-09 13:21:59,467 [P4296/D3/T70] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [InstructionProcessing] Waiting for tasks to complete
+ 2022-11-09 13:21:59,467 [P4296/D3/T88] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [KeepAlive] Tasks completed, terminated
+ 2022-11-09 13:21:59,467 [P4296/D3/T70] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [LogScrubber] Terminating
+ 2022-11-09 13:21:59,468 [P4296/D3/T70] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [LogScrubber] Waiting for tasks to complete
+ 2022-11-09 13:21:59,467 [P4296/D3/T47] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [InstructionProcessing] Tasks completed, terminated
+ 2022-11-09 13:21:59,468 [P4296/D3/T216] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [LogScrubber] Tasks completed, terminated
+ 2022-11-09 13:21:59,468 [P4296/D3/T70] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [ScheduledPublishing] Terminating
+ 2022-11-09 13:21:59,469 [P4296/D3/T70] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [ScheduledPublishing] Waiting for tasks to complete
+ 2022-11-09 13:21:59,470 [P4296/D3/T70] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [ScheduledTasks] Terminating
+ 2022-11-09 13:21:59,470 [P4296/D3/T70] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [ScheduledTasks] Waiting for tasks to complete
+ 2022-11-09 13:21:59,470 [P4296/D3/T88] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [ScheduledPublishing] Tasks completed, terminated
+ 2022-11-09 13:21:59,470 [P4296/D3/T47] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [ScheduledTasks] Tasks completed, terminated
+ 2022-11-09 13:22:29,495 [P4296/D3/T88] INFO  Umbraco.Core.UmbracoApplicationBase - Application shutdown. Details: HostingEnvironment
+
+_shutDownMessage=HostingEnvironment initiated shutdown
+HostingEnvironment caused shutdown
+
+_shutDownStack=   at System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   at System.Environment.get_StackTrace()
+   at System.Web.Hosting.HostingEnvironment.InitiateShutdownInternal()
+   at System.Web.Hosting.HostingEnvironment.InitiateShutdownWithoutDemand()
+   at System.Web.Hosting.PipelineRuntime.StopProcessing()

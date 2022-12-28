@@ -1,6 +1,11 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @{
-	Layout = null;
+    string href = "";
+    if (Model.Content.HasValue("defaultHome"))
+    {
+        href = Model.Content.GetPropertyValue<IPublishedContent>("defaultHome").Url;
+    }
+    Context.Response.Redirect(href);
 }
 
 @* the fun starts here *@

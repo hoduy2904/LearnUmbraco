@@ -1,0 +1,7 @@
+﻿ 2022-11-04 09:18:25,896 [P4296/D3/T11] INFO  Umbraco.Core.PluginManager - Resolving umbraco.interfaces.IDiscoverable
+ 2022-11-04 09:18:25,896 [P4296/D3/T11] INFO  Umbraco.Core.PluginManager - Resolved umbraco.interfaces.IDiscoverable (took 2ms)
+ 2022-11-04 09:18:25,911 [P4296/D3/T11] INFO  Umbraco.Core.PluginManager - Resolving [Umbraco.Core.Persistence.Mappers.MapperForAttribute]Umbraco.Core.Persistence.Mappers.BaseMapper
+ 2022-11-04 09:18:26,005 [P4296/D3/T11] INFO  Umbraco.Core.PluginManager - Resolved [Umbraco.Core.Persistence.Mappers.MapperForAttribute]Umbraco.Core.Persistence.Mappers.BaseMapper (took 99ms)
+ 2022-11-04 09:18:26,412 [P4296/D3/T13] INFO  umbraco.BusinessLogic.Log - Log scrubbed.  Removed all items older than 2022-11-03 09:18:25
+ 2022-11-04 13:18:26,281 [P4296/D3/T65] INFO  umbraco.BusinessLogic.Log - Log scrubbed.  Removed all items older than 2022-11-03 13:18:26
+ 2022-11-04 17:18:26,108 [P4296/D3/T179] INFO  umbraco.BusinessLogic.Log - Log scrubbed.  Removed all items older than 2022-11-03 17:18:26

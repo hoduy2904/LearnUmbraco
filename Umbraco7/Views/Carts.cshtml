@@ -29,7 +29,7 @@
                 @foreach (var item in listCart)
                 {
                     <tr id="@item.Id">
-                        <td style="max-width:150px;"><img src="@item.Images" alt="@item.Name" style="max-width:100%;"/></td>
+                        <td style="max-width:150px;"><img src="@item.Images" alt="@item.Name" style="max-width: 100%; border-radius: 5px;"/></td>
                         <td>@item.Name</td>
                         <td>@item.FromDate.ToShortDateString()</td>
                         <td>@item.toDate.ToShortDateString()</td>

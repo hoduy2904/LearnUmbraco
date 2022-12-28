@@ -1,0 +1,133 @@
+﻿ 2022-10-27 11:00:04,218 [P5684/D4/T141] INFO  Umbraco.Core.Manifest.ManifestWatcher - manifest has changed, app pool is restarting (D:\TTS\Day7\Umbraco7\Umbraco7\App_Plugins\ModelsBuilder\package.manifest)
+ 2022-10-27 11:00:04,256 [P5684/D4/T173] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [HealthCheckNotifier] Terminating
+ 2022-10-27 11:00:04,256 [P5684/D4/T173] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [HealthCheckNotifier] Waiting for tasks to complete
+ 2022-10-27 11:00:04,259 [P5684/D4/T173] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [HealthCheckNotifier] Tasks completed, terminated
+ 2022-10-27 11:00:04,262 [P5684/D4/T173] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [ScheduledTasks] Terminating
+ 2022-10-27 11:00:04,272 [P5684/D4/T173] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [ScheduledTasks] Waiting for tasks to complete
+ 2022-10-27 11:00:04,303 [P5684/D4/T150] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [ScheduledTasks] Tasks completed, terminated
+ 2022-10-27 11:00:04,312 [P5684/D4/T173] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [Umbraco.Web.Scheduling.IBackgroundTask] Terminating
+ 2022-10-27 11:00:04,313 [P5684/D4/T173] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [Umbraco.Web.Scheduling.IBackgroundTask] Waiting for tasks to complete
+ 2022-10-27 11:00:04,316 [P5684/D4/T173] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [InstructionProcessing] Terminating
+ 2022-10-27 11:00:04,317 [P5684/D4/T173] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [InstructionProcessing] Waiting for tasks to complete
+ 2022-10-27 11:00:04,324 [P5684/D4/T196] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [Umbraco.Web.Scheduling.IBackgroundTask] Tasks completed, terminated
+ 2022-10-27 11:00:04,326 [P5684/D4/T130] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [InstructionProcessing] Tasks completed, terminated
+ 2022-10-27 11:00:04,355 [P5684/D4/T173] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [LogScrubber] Terminating
+ 2022-10-27 11:00:04,356 [P5684/D4/T173] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [LogScrubber] Waiting for tasks to complete
+ 2022-10-27 11:00:04,356 [P5684/D4/T173] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [KeepAlive] Terminating
+ 2022-10-27 11:00:04,356 [P5684/D4/T173] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [KeepAlive] Waiting for tasks to complete
+ 2022-10-27 11:00:04,357 [P5684/D4/T123] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [LogScrubber] Tasks completed, terminated
+ 2022-10-27 11:00:04,357 [P5684/D4/T173] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [ScheduledPublishing] Terminating
+ 2022-10-27 11:00:04,357 [P5684/D4/T131] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [KeepAlive] Tasks completed, terminated
+ 2022-10-27 11:00:04,357 [P5684/D4/T173] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [ScheduledPublishing] Waiting for tasks to complete
+ 2022-10-27 11:00:04,358 [P5684/D4/T131] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [ScheduledPublishing] Tasks completed, terminated
+ 2022-10-27 11:00:04,360 [P5684/D4/T173] INFO  Umbraco.Core.MainDom - Stopping...
+ 2022-10-27 11:00:04,366 [P5684/D4/T173] INFO  Umbraco.Web.ExamineStartup - Examine shutting down
+ 2022-10-27 11:00:04,370 [P5684/D4/T173] INFO  Umbraco.Web.ExamineStartup - Complete (took 4ms)
+ 2022-10-27 11:00:04,371 [P5684/D4/T173] INFO  Umbraco.Core.MainDom - Released MainDom.
+ 2022-10-27 11:00:05,083 [P5684/D5/T16] INFO  Umbraco.Core.CoreBootManager - Umbraco 7.9.7 application starting on PC-DUYHO
+ 2022-10-27 11:00:05,096 [P5684/D5/T16] INFO  Umbraco.Core.PluginManager - Determining hash of code files on disk
+ 2022-10-27 11:00:05,106 [P5684/D5/T16] INFO  Umbraco.Core.PluginManager - Hash determined (took 9ms)
+ 2022-10-27 11:00:05,133 [P5684/D5/T16] INFO  Umbraco.Core.MainDom - Acquiring MainDom...
+ 2022-10-27 11:00:05,133 [P5684/D5/T16] INFO  Umbraco.Core.MainDom - Acquired MainDom.
+ 2022-10-27 11:00:05,136 [P5684/D5/T16] INFO  Umbraco.Core.PluginManager - Resolving umbraco.interfaces.IDiscoverable
+ 2022-10-27 11:00:05,190 [P5684/D5/T16] INFO  Umbraco.Core.PluginManager - Resolved umbraco.interfaces.IDiscoverable (took 54ms)
+ 2022-10-27 11:00:05,191 [P5684/D5/T16] INFO  Umbraco.Core.PluginManager - Resolving umbraco.interfaces.IApplicationStartupHandler
+ 2022-10-27 11:00:05,192 [P5684/D5/T16] INFO  Umbraco.Core.PluginManager - Resolved umbraco.interfaces.IApplicationStartupHandler (took 1ms)
+ 2022-10-27 11:00:05,220 [P5684/D5/T16] INFO  Umbraco.Core.PluginManager - Resolving umbraco.interfaces.IDiscoverable
+ 2022-10-27 11:00:05,220 [P5684/D5/T16] INFO  Umbraco.Core.PluginManager - Resolved umbraco.interfaces.IDiscoverable (took 0ms)
+ 2022-10-27 11:00:05,221 [P5684/D5/T16] INFO  Umbraco.Core.PluginManager - Resolving Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter
+ 2022-10-27 11:00:05,221 [P5684/D5/T16] INFO  Umbraco.Core.PluginManager - Resolved Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter (took 0ms)
+ 2022-10-27 11:00:05,221 [P5684/D5/T16] INFO  Umbraco.Core.PluginManager - Resolving umbraco.interfaces.IDiscoverable
+ 2022-10-27 11:00:05,222 [P5684/D5/T16] INFO  Umbraco.Core.PluginManager - Resolved umbraco.interfaces.IDiscoverable (took 0ms)
+ 2022-10-27 11:00:05,222 [P5684/D5/T16] INFO  Umbraco.Core.PluginManager - Resolving Umbraco.Core.PropertyEditors.IPropertyValueConverter
+ 2022-10-27 11:00:05,224 [P5684/D5/T16] INFO  Umbraco.Core.PluginManager - Resolved Umbraco.Core.PropertyEditors.IPropertyValueConverter (took 1ms)
+ 2022-10-27 11:00:05,229 [P5684/D5/T16] INFO  Umbraco.Core.PluginManager - Resolving umbraco.interfaces.IDiscoverable
+ 2022-10-27 11:00:05,230 [P5684/D5/T16] INFO  Umbraco.Core.PluginManager - Resolved umbraco.interfaces.IDiscoverable (took 0ms)
+ 2022-10-27 11:00:05,230 [P5684/D5/T16] INFO  Umbraco.Core.PluginManager - Resolving Umbraco.Web.Mvc.SurfaceController
+ 2022-10-27 11:00:05,231 [P5684/D5/T16] INFO  Umbraco.Core.PluginManager - Resolved Umbraco.Web.Mvc.SurfaceController (took 0ms)
+ 2022-10-27 11:00:05,232 [P5684/D5/T16] INFO  Umbraco.Core.PluginManager - Resolving umbraco.interfaces.IDiscoverable
+ 2022-10-27 11:00:05,232 [P5684/D5/T16] INFO  Umbraco.Core.PluginManager - Resolved umbraco.interfaces.IDiscoverable (took 0ms)
+ 2022-10-27 11:00:05,233 [P5684/D5/T16] INFO  Umbraco.Core.PluginManager - Resolving Umbraco.Web.WebApi.UmbracoApiController
+ 2022-10-27 11:00:05,234 [P5684/D5/T16] INFO  Umbraco.Core.PluginManager - Resolved Umbraco.Web.WebApi.UmbracoApiController (took 0ms)
+ 2022-10-27 11:00:06,575 [P5684/D5/T16] INFO  Umbraco.Core.DatabaseContext - CanConnect = True
+ 2022-10-27 11:00:06,729 [P5684/D5/T16] INFO  Umbraco.Web.Cache.CacheRefresherEventHandler - Initializing Umbraco internal event handlers for cache refreshing
+ 2022-10-27 11:00:06,788 [P5684/D5/T16] INFO  Umbraco.Web.Search.ExamineEvents - Initializing Examine and binding to business logic events
+ 2022-10-27 11:00:06,860 [P5684/D5/T16] INFO  Umbraco.Web.Search.ExamineEvents - Adding examine event handlers for index providers: 3
+ 2022-10-27 11:00:06,866 [P5684/D5/T16] INFO  Umbraco.Core.CoreBootManager - Umbraco application startup complete (took 1858ms)
+ 2022-10-27 11:00:07,221 [P5684/D5/T169] INFO  Umbraco.Core.Sync.ApplicationUrlHelper - New ApplicationUrl detected: http://learnumbraco.local:80/umbraco
+ 2022-10-27 11:00:07,221 [P5684/D5/T169] INFO  Umbraco.Core.Sync.ApplicationUrlHelper - ApplicationUrl: http://learnumbraco.local:80/umbraco (UmbracoModule request)
+ 2022-10-27 11:00:15,486 [P5684/D5/T130] INFO  Umbraco.Core.Security.BackOfficeSignInManager - Event Id: 0, state: Login attempt failed for username shopping@admin.com from IP address 127.0.0.1
+ 2022-10-27 11:00:21,553 [P5684/D5/T128] INFO  Umbraco.Core.Security.BackOfficeSignInManager - Event Id: 0, state: Login attempt failed for username admin@shopping.com from IP address 127.0.0.1
+ 2022-10-27 11:00:24,208 [P5684/D5/T148] INFO  Umbraco.Core.Security.BackOfficeSignInManager - Event Id: 0, state: Login attempt failed for username admin@shopping.com from IP address 127.0.0.1
+ 2022-10-27 11:00:34,427 [P5684/D4/T185] INFO  Umbraco.Core.UmbracoApplicationBase - Application shutdown. Details: UnloadAppDomainCalled
+
+_shutDownMessage=User code called UnloadAppDomain
+HostingEnvironment initiated shutdown
+HostingEnvironment caused shutdown
+
+_shutDownStack=   at System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   at System.Environment.get_StackTrace()
+   at System.Web.Hosting.HostingEnvironment.InitiateShutdownInternal()
+   at System.Web.Hosting.HostingEnvironment.InitiateShutdownWithoutDemand()
+   at System.Web.HttpRuntime.ShutdownAppDomain(String stackTrace)
+   at System.Web.HttpRuntime.UnloadAppDomain()
+   at Umbraco.Core.Manifest.ManifestWatcher.FswChanged(Object sender, FileSystemEventArgs e)
+   at System.IO.FileSystemWatcher.OnChanged(FileSystemEventArgs e)
+   at System.IO.FileSystemWatcher.CompletionStatusChanged(UInt32 errorCode, UInt32 numBytes, NativeOverlapped* overlappedPointer)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading._IOCompletionCallback.PerformIOCompletionCallback(UInt32 errorCode, UInt32 numBytes, NativeOverlapped* pOVERLAP)
+ 2022-10-27 11:00:44,558 [P5684/D5/T186] INFO  Umbraco.Core.Security.BackOfficeSignInManager - Event Id: 0, state: Login attempt failed for username shopping@admin.com from IP address 127.0.0.1
+ 2022-10-27 11:00:51,949 [P5684/D5/T131] INFO  Umbraco.Core.Security.BackOfficeSignInManager - Event Id: 0, state: Login attempt failed for username admin@shopping.com from IP address 127.0.0.1
+ 2022-10-27 11:01:02,080 [P5684/D5/T175] INFO  Umbraco.Core.Security.BackOfficeSignInManager - Event Id: 0, state: Login attempt failed for username admin@gmail.com from IP address 127.0.0.1
+ 2022-10-27 11:01:05,694 [P5684/D5/T185] INFO  Umbraco.Core.Security.BackOfficeSignInManager - Event Id: 0, state: Login attempt failed for username shopping@gmail.com from IP address 127.0.0.1
+ 2022-10-27 11:01:07,760 [P5684/D5/T173] INFO  umbraco.content - Load Xml from file...
+ 2022-10-27 11:01:07,764 [P5684/D5/T173] INFO  umbraco.content - Loaded Xml from file.
+ 2022-10-27 11:01:07,772 [P5684/D5/T131] INFO  umbraco.BusinessLogic.Log - Log scrubbed.  Removed all items older than 2022-10-26 11:01:07
+ 2022-10-27 11:01:07,780 [P5684/D5/T173] INFO  Umbraco.Core.PluginManager - Resolving umbraco.interfaces.IDiscoverable
+ 2022-10-27 11:01:07,781 [P5684/D5/T173] INFO  Umbraco.Core.PluginManager - Resolved umbraco.interfaces.IDiscoverable (took 0ms)
+ 2022-10-27 11:01:07,781 [P5684/D5/T173] INFO  Umbraco.Core.PluginManager - Resolving [Umbraco.Core.Persistence.Mappers.MapperForAttribute]Umbraco.Core.Persistence.Mappers.BaseMapper
+ 2022-10-27 11:01:07,782 [P5684/D5/T173] INFO  Umbraco.Core.PluginManager - Resolved [Umbraco.Core.Persistence.Mappers.MapperForAttribute]Umbraco.Core.Persistence.Mappers.BaseMapper (took 1ms)
+ 2022-10-27 11:01:24,985 [P5684/D5/T128] INFO  Umbraco.Core.PluginManager - Resolving umbraco.interfaces.IDiscoverable
+ 2022-10-27 11:01:24,985 [P5684/D5/T128] INFO  Umbraco.Core.PluginManager - Resolved umbraco.interfaces.IDiscoverable (took 0ms)
+ 2022-10-27 11:01:24,985 [P5684/D5/T128] INFO  Umbraco.Core.PluginManager - Resolving Umbraco.Core.PropertyEditors.IParameterEditor
+ 2022-10-27 11:01:24,986 [P5684/D5/T128] INFO  Umbraco.Core.PluginManager - Resolved Umbraco.Core.PropertyEditors.IParameterEditor (took 0ms)
+ 2022-10-27 11:01:25,465 [P5684/D5/T128] INFO  Umbraco.Core.PluginManager - Resolving umbraco.interfaces.IDiscoverable
+ 2022-10-27 11:01:25,465 [P5684/D5/T128] INFO  Umbraco.Core.PluginManager - Resolved umbraco.interfaces.IDiscoverable (took 0ms)
+ 2022-10-27 11:01:25,465 [P5684/D5/T128] INFO  Umbraco.Core.PluginManager - Resolving Umbraco.Core.Deploy.IServiceConnector
+ 2022-10-27 11:01:25,466 [P5684/D5/T128] INFO  Umbraco.Core.PluginManager - Resolved Umbraco.Core.Deploy.IServiceConnector (took 0ms)
+ 2022-10-27 14:31:24,702 [P5684/D5/T128] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [Umbraco.Web.Scheduling.IBackgroundTask] Terminating
+ 2022-10-27 14:31:24,704 [P5684/D5/T128] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [Umbraco.Web.Scheduling.IBackgroundTask] Waiting for tasks to complete
+ 2022-10-27 14:31:24,715 [P5684/D5/T128] INFO  Umbraco.Core.MainDom - Stopping...
+ 2022-10-27 14:31:24,717 [P5684/D5/T173] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [Umbraco.Web.Scheduling.IBackgroundTask] Tasks completed, terminated
+ 2022-10-27 14:31:24,720 [P5684/D5/T128] INFO  Umbraco.Web.ExamineStartup - Examine shutting down
+ 2022-10-27 14:31:24,728 [P5684/D5/T128] INFO  Umbraco.Web.ExamineStartup - Complete (took 8ms)
+ 2022-10-27 14:31:24,728 [P5684/D5/T128] INFO  Umbraco.Core.MainDom - Released MainDom.
+ 2022-10-27 14:31:24,732 [P5684/D5/T128] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [KeepAlive] Terminating
+ 2022-10-27 14:31:24,732 [P5684/D5/T128] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [KeepAlive] Waiting for tasks to complete
+ 2022-10-27 14:31:24,733 [P5684/D5/T128] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [InstructionProcessing] Terminating
+ 2022-10-27 14:31:24,733 [P5684/D5/T128] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [InstructionProcessing] Waiting for tasks to complete
+ 2022-10-27 14:31:24,733 [P5684/D5/T130] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [KeepAlive] Tasks completed, terminated
+ 2022-10-27 14:31:24,734 [P5684/D5/T6] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [InstructionProcessing] Tasks completed, terminated
+ 2022-10-27 14:31:24,734 [P5684/D5/T128] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [HealthCheckNotifier] Terminating
+ 2022-10-27 14:31:24,735 [P5684/D5/T128] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [HealthCheckNotifier] Waiting for tasks to complete
+ 2022-10-27 14:31:24,735 [P5684/D5/T128] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [HealthCheckNotifier] Tasks completed, terminated
+ 2022-10-27 14:31:24,736 [P5684/D5/T128] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [ScheduledTasks] Terminating
+ 2022-10-27 14:31:24,736 [P5684/D5/T128] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [ScheduledTasks] Waiting for tasks to complete
+ 2022-10-27 14:31:24,736 [P5684/D5/T128] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [LogScrubber] Terminating
+ 2022-10-27 14:31:24,736 [P5684/D5/T148] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [ScheduledTasks] Tasks completed, terminated
+ 2022-10-27 14:31:24,736 [P5684/D5/T128] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [LogScrubber] Waiting for tasks to complete
+ 2022-10-27 14:31:24,737 [P5684/D5/T128] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [ScheduledPublishing] Terminating
+ 2022-10-27 14:31:24,737 [P5684/D5/T128] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [ScheduledPublishing] Waiting for tasks to complete
+ 2022-10-27 14:31:24,737 [P5684/D5/T175] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [LogScrubber] Tasks completed, terminated
+ 2022-10-27 14:31:24,738 [P5684/D5/T186] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [ScheduledPublishing] Tasks completed, terminated
+ 2022-10-27 14:31:54,774 [P5684/D5/T186] INFO  Umbraco.Core.UmbracoApplicationBase - Application shutdown. Details: HostingEnvironment
+
+_shutDownMessage=HostingEnvironment initiated shutdown
+HostingEnvironment caused shutdown
+
+_shutDownStack=   at System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   at System.Environment.get_StackTrace()
+   at System.Web.Hosting.HostingEnvironment.InitiateShutdownInternal()
+   at System.Web.Hosting.HostingEnvironment.InitiateShutdownWithoutDemand()
+   at System.Web.Hosting.PipelineRuntime.StopProcessing()
