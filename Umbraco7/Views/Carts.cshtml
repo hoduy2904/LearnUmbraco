@@ -6,7 +6,6 @@
 }
 
 <div class="container">
-    <p><b>Carts Count: <span class="text-danger" id="NumberCarts">0</span></b></p>
     <h1 class="text-center">List Carts</h1>
 
 
@@ -16,7 +15,7 @@
         <table class="table mt-5 table-hover">
             <thead class="text-center">
                 <tr>
-                    <th>ID</th>
+                    <th>Image</th>
                     <th>Name</th>
                     <th>From Date</th>
                     <th>To Date</th>
@@ -30,7 +29,7 @@
                 @foreach (var item in listCart)
                 {
                     <tr id="@item.Id">
-                        <td>@item.Id</td>
+                        <td style="max-width:150px;"><img src="@item.Images" alt="@item.Name" style="max-width: 100%; border-radius: 5px;"/></td>
                         <td>@item.Name</td>
                         <td>@item.FromDate.ToShortDateString()</td>
                         <td>@item.toDate.ToShortDateString()</td>

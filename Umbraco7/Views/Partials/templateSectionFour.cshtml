@@ -1,0 +1,48 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    //Section Four
+    var sectionFour = Model.Content.FirstChild("templateSectionFour");
+    var sectionFourIsShow = sectionFour == null ? false : sectionFour.GetPropertyValue<bool>("isShow");
+}
+<div class="container mt-5">
+@if (sectionFour != null)
+    {
+        if (sectionFourIsShow)
+        {
+            bool isFirst = true;
+            <div class="row template template-two">
+
+                @foreach (var item in sectionFour.GetPropertyValue<IEnumerable<IPublishedContent>>("items"))
+                {
+
+
+                    <div class="col-sm-12 col-md-6">
+                        @if (isFirst)
+                        {
+                            <h2 class="title-heading font-weight-bold" style="font-size: 30px;">@(sectionFour.GetPropertyValue<string>("title"))</h2>
+                        }
+
+                        <div class="card-text-image">
+                            <div class="card-text-image_body row @(isFirst==false ?"flex-row-reverse" : "")">
+
+                                <div class="col-6 align-self-center">
+                                    <h3 class="card-text-title">@(item.GetPropertyValue<string>("title"))</h3>
+                                    <p>@(item.GetPropertyValue<string>("description"))</p>
+                                </div>
+
+                                <div class="col-6">
+                                    <div class="card-body-image">
+                                        <img alt="Images Body" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" lazy-src="@(item.GetPropertyValue<IPublishedContent>("image") == null ? "" : item.GetPropertyValue<IPublishedContent>("image").Url)" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    isFirst = false;
+
+                }
+
+            </div>
+        }
+    }
+    </div>

@@ -1,0 +1,32 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    var langs = Model.Content.Parent.Children();
+ //Section Banner
+    var banners = Model.Content.FirstChild("bannerTemplate");
+}
+ @*Section Banner*@
+
+    @if (banners != null)
+    {
+        <div class="banner">
+
+
+            <div class="owl-carousel owl-theme banner-carousel">
+                @foreach (var item in banners.Children)
+                {
+
+                    <div class="banner-image">
+                        <img data-href="@(item.GetPropertyValue<string>("href"))" data-title="@(item.GetPropertyValue<string>("title"))" src="@(item.GetPropertyValue<IPublishedContent>("image") == null ? "" : item.GetPropertyValue<IPublishedContent>("image").Url)" alt="@item.Name" />
+                    </div>
+
+                }
+            </div>
+            <div class="banner-title">
+                <p class="text-center title-heading">planning</p>
+                <a href="#" class="btn btn-custom text-white">@Umbraco.GetDictionaryValue("Read more")</a>
+            </div>
+
+
+
+        </div>
+    }

@@ -5,3 +5,113 @@
     border-radius: 10px;
     padding: 20px;
 }
+.wrapper{
+    margin-top:80px;
+}
+nav.navbar {
+    color: #333;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
+    margin-bottom: 10px;
+    height: 80px;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.5s linear;
+    position: fixed;
+    width: 100%;
+    background-color: #fff;
+    color: #333;
+    top: 0;
+    left: 0;
+    z-index: 5;
+}
+
+    nav.navbar.scroll ul li a{
+        color: #333;
+    }
+    nav.navbar ul li a {
+        font-weight: 600;
+        text-decoration: none;
+        color: #333;
+        padding: 10px 15px;
+        transition: all 0.5s linear;
+    }
+
+    nav.navbar ul li a:hover {
+        color: rgb(235, 121, 46)
+    }
+
+.shop-cart {
+    position: relative;
+    align-self: center;
+}
+
+    .shop-cart span {
+        color: white;
+        font-weight: bold;
+        font-size: 12px;
+        padding: 0 5px;
+        border-radius: 50%;
+        background-color: red;
+        position: absolute;
+        top: -12px;
+        right: 0;
+    }
+
+.toggle-button {
+    background-color: transparent;
+    margin: 0 5px;
+    font-size: 20px;
+    border: none;
+    display: none;
+}
+
+@media (max-width: 700px) {
+    .toggle-button {
+        display: block;
+    }
+
+    .right {
+        max-width: 70% !important;
+        flex: 0 0 70%;
+    }
+
+    .toggle-menu {
+        display: none;
+        left: 0;
+        z-index: 2;
+        height: 100vh;
+        max-width: 100%;
+        position: absolute;
+        width: 100%;
+        background-color: #fff;
+        top: 80px;
+    }
+
+        .toggle-menu ul {
+            flex-direction: column;
+        }
+}
+table td {
+    vertical-align:middle !important;
+}
+
+.back-to-top {
+    opacity:0;
+    transition: all 0.5s linear;
+    border: none;
+    position: fixed;
+    bottom: -10%;
+    right: 40px;
+    padding: 5px 10px;
+    background-color: black;
+    color: #fff;
+    border-radius: 4px;
+    cursor:pointer;
+}
+    .back-to-top.show {
+        opacity: 1;
+        bottom: 50px;
+    }
+    .back-to-top.show:hover{
+        opacity: 0.9;
+    }

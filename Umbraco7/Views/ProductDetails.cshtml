@@ -6,15 +6,24 @@
     string image = Model.Content.GetPropertyValue<IPublishedContent>("image") == null ? "" : Model.Content.GetPropertyValue<IPublishedContent>("image").Url;
 
     string toDate = Umbraco.GetDictionaryValue("To Date");
+    ViewBag.title= Umbraco.Field("titleSEO");
+    ViewBag.description= Umbraco.Field("descriptionSEO");
+    ViewBag.img = image;
 }
 <div style="background-color: #f2f3f3" class="py-5">
     <div class="container mb-5">
-        <p><b>Carts Count: <span class="text-danger" id="NumberCarts">0</span></b></p>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="@Model.Content.Parent.Parent.Url">@Umbraco.GetDictionaryValue("Home")</a></li>
+                <li class="breadcrumb-item"><a href="@Model.Content.Parent.Url">@Model.Content.Parent.GetPropertyValue("title")</a></li>
+                <li class="breadcrumb-item active" aria-current="page">@ViewBag.title</li>
+            </ol>
+        </nav>
         <div class="product-details row">
             <div class="row col-12 mb-4 wrapInfo bg-white">
                 <div class="col-sm-12 col-lg-6 col-12">
                     <img style="aspect-ratio: 1/1;
-            object-fit: cover;" class="w-100 rounded" src="@(image)" />
+            object-fit: cover;" class="w-100 rounded" alt="@Umbraco.Field("titleSEO")" src="@(image)" />
                 </div>
                 <div class="col-sm-12 col-lg-6 col-12">
                     <h1 class="mb-3 font-weight-bold">@Umbraco.Field("title")</h1>
@@ -30,7 +39,7 @@
                         </tr>
                     </table>
                     <div class="form-group">
-                        <label>Number: </label>
+                        <label>@Umbraco.GetDictionaryValue("Number"): </label>
                         <input type="number" class="form-control" min="1" value="1" id="numbers" />
                     </div>
                     <h2>@Umbraco.GetDictionaryValue("Price"): </h2>

@@ -8,23 +8,6 @@
 }
 
 <div class="banner">
-
-        <div style="position: absolute; top:10px; left:20px; z-index:2;">
-            <b>Language Options: </b>
-            @foreach (var lang in langs)
-            {
-                if (defaultUrl.Split('/')[1].ToUpper().Contains(lang.Name.ToUpper()))
-                {
-                    <b><a href="@lang.Url">@lang.Name</a></b>
-                }
-                else
-                {
-                    <a href="@lang.Url">@lang.Name</a>
-                }
-
-            }
-        </div>
-
         <div class="owl-carousel owl-theme banner-carousel">
 
             @foreach (var item in banners)

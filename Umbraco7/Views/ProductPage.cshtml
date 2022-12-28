@@ -2,9 +2,16 @@
     @using ContentModels = Umbraco.Web.PublishedContentModels;
     @{
     Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.title= Umbraco.Field("titleSEO");
+    ViewBag.description= Umbraco.Field("descriptionSEO");
     }
 <div class="container mt-5">
-    <p><b>Carts Count: <span class="text-danger" id="NumberCarts">0</span></b></p>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="@Model.Content.Parent.Url">@Umbraco.GetDictionaryValue("Home")</a></li>
+            <li class="breadcrumb-item active" aria-current="page">@ViewBag.title</li>
+        </ol>
+    </nav>
     <h1 class="mb-5">@(Model.Content.GetPropertyValue("title"))</h1>
     <div class="products template-five row">
         @foreach (var item in Model.Content.Children)

@@ -1,0 +1,35 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    //Section Six
+
+    var TemplateSix = Model.Content.FirstChild("templateSectionSix");
+    }
+    
+     @if (TemplateSix != null)
+    {
+        <div class="row bg-blue p-5 template-four">
+            <div class="col-md-6 col-sm-12">
+                <h3 class="display-4 ds-mobile">@(TemplateSix.GetPropertyValue<string>("title"))</h3>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <div class="row">
+                    @foreach (var item in TemplateSix.GetPropertyValue<IEnumerable<IPublishedContent>>("items"))
+                    {
+                        <div class="card-round col-12">
+                            <div class="card-head">
+                                <b>@(item.GetPropertyValue<string>("circleTitle"))</b>
+                            </div>
+                            <div class="card-body">
+                                <h6 class="card-body-title">
+                                    @(item.GetPropertyValue<string>("title"))
+                                </h6>
+                                <div class="card-body-subtitle">
+                                    <p> @(item.GetPropertyValue<string>("description")) </p>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    }

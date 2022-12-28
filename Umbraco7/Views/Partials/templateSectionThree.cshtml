@@ -1,0 +1,23 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+
+    //Section Three
+    var SectionThree = Model.Content.FirstChild("templateSectionThree");
+    var sectionThreeisShow = SectionThree == null ? false : SectionThree.GetPropertyValue<bool>("isShow");
+}
+    <div class="container mt-5">
+
+
+        @*End Section Banner*@
+
+        @if (SectionThree != null)
+        {
+            if (sectionThreeisShow)
+            {
+                <div class="col-md-7 col-sm-12 template">
+                    <h2 class="title-heading font-weight-bold mb-3" style="font-size: 30px !important;">@(SectionThree.GetPropertyValue<string>("title"))</h2>
+                    @(SectionThree.GetPropertyValue<string>("description"))
+                </div>
+            }
+        }
+    </div>

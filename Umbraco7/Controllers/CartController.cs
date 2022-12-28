@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Umbraco.Core;
+using Umbraco.Web;
 using Umbraco.Web.Mvc;
 using Umbraco7.Model;
 using Umbraco7.Services;
@@ -75,6 +77,12 @@ namespace Umbraco7.Controllers
                 var Product = _products.GetProduct(id);
             if (Product != null)
             {
+                if (!string.IsNullOrEmpty(Product.Image))
+                {
+                    var ImageProperties = Umbraco.TypedMedia(Udi.Parse(Product.Image));
+                    if(ImageProperties!=null)
+                    Product.Image = ImageProperties.Url;
+                }
                 //Find and update cart item if exits
                 var cartOld = listCart.FirstOrDefault(x => x.Id == id);
                 if (cartOld == null)
@@ -83,6 +91,7 @@ namespace Umbraco7.Controllers
                     {
                         FromDate = Product.FromDate,
                         Id = id,
+                        Images=Product.Image,
                         Name = Product.Title,
                         Numbers = Numbers,
                         price = Product.Price,
@@ -91,6 +100,7 @@ namespace Umbraco7.Controllers
                 }
                 else
                 {
+                    cartOld.Images = Product.Image;
                     cartOld.price = Product.Price;
                     cartOld.Name = Product.Title;
                     cartOld.FromDate = Product.FromDate;

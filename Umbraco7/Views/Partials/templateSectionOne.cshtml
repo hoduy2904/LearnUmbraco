@@ -1,0 +1,48 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    //Template One
+    var TemplateOne = Model.Content.FirstChild("templateSectionOne");
+    var titleTemplateOne = TemplateOne == null ? "" : TemplateOne.GetPropertyValue<string>("title");
+    var titleBlueTemplateOne = TemplateOne == null ? "" : TemplateOne.GetPropertyValue<string>("titleBlue");
+    var templateOneSubtitle = TemplateOne == null ? "" : TemplateOne.GetPropertyValue<string>("description");
+    var IsShowTemplateOne = TemplateOne == null ? false : TemplateOne.GetPropertyValue<bool>("isShow");
+}
+<div class="container mt-5">
+        @if (TemplateOne != null)
+        {
+            if (IsShowTemplateOne)
+            {
+                <div class="row m-3">
+                    <div class="col-12 d-flex">
+                        <div class="text-center m-auto">
+                            <h1 class="title-heading m-0 font-weight-bold">@titleTemplateOne</h1>
+                            <h2 class="title-heading m-0 text-blue font-weight-bold">@titleBlueTemplateOne</h2>
+                            <p class="lorem-text">@templateOneSubtitle</p>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="row">
+
+                            @foreach (var item in TemplateOne.Children())
+                            {
+                                <div class="card-round col-4">
+                                    <div class="card-head">
+                                        <b>@(item.GetPropertyValue<string>("circleTitle"))</b>
+                                    </div>
+                                    <div class="card-body">
+                                        <h6 class="card-body-title">
+                                            @(item.GetPropertyValue<string>("title"))
+                                        </h6>
+                                        <div class="card-body-subtitle">
+                                            <p> @(item.GetPropertyValue<string>("description"))</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+                    </div>
+            }
+        }
+</div>

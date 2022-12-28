@@ -39,7 +39,7 @@ const addCart = (id, number = 1) => {
     getCountCarts();
 }
 
-const addCartCookie = (id, number = 1) => {
+const  addCartCookie = (id, number = 1) => {
     $.ajax({
         url: '/umbraco/Surface/cart/cart',
         method: 'POST',
@@ -48,14 +48,12 @@ const addCartCookie = (id, number = 1) => {
             Numbers:number
         },
         success: function (data) {
-            if (data.success) {
+            if (data.success) { 
                 alert(data.message);
                 getCountCarts(data.count)
             }
         }
     })
-
-    getCountCarts();
 }
 
 const delCart = (id) => {
@@ -183,5 +181,5 @@ const showCart = () => {
 
 const getCountCarts = (number=0) => {
 
-    $('#NumberCarts').text(number);
+    $('#countCart').text(number);
 }
